@@ -10,7 +10,7 @@ public static class ConfigurationExtensions
         hostBuilder.ConfigureAppConfiguration((ctx, builder) =>
         {
             var config = builder.Build();
-            AddConfigurationFromEf(builder, config);
+            builder.AddConfigurationsFromEf(config);
         });
 
     public static void AddConfigurations(this IServiceCollection serviceCollection, IConfiguration configuration)
@@ -18,7 +18,4 @@ public static class ConfigurationExtensions
         serviceCollection.Configure<SystemInfoConfiguration>(
             configuration.GetSection(SystemInfoConfiguration.SettingsKey));
     }
-
-    private static void AddConfigurationFromEf(IConfigurationBuilder builder, IConfiguration config) =>
-        builder.AddEfConfiguration(o => { o.UseSqlServer(config.GetConnectionString("DefaultConnection")); });
 }
