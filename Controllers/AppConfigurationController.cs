@@ -14,7 +14,10 @@ public class AppConfigurationController : ControllerBase
     {
         _systemInfoConfiguration = systemInfoConfiguration.Value;
     }
-    
+
     [HttpGet]
-    public IActionResult GetConfigs() => Ok(_systemInfoConfiguration);
+    public IActionResult GetConfigs()
+    {
+        return Ok(_systemInfoConfiguration);
+    }
 }

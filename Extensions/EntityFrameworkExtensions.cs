@@ -6,7 +6,8 @@ namespace WorkingWithProviders.Extensions;
 
 public static class EntityFrameworkExtensions
 {
-    public static void AddDbContext(this IServiceCollection services, IConfiguration configuration) =>
+    public static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
+    {
         services.AddSqlServer<WorkingWithProvidersDbContext>(configuration.GetConnectionString("DefaultConnection"));
-
+    }
 }

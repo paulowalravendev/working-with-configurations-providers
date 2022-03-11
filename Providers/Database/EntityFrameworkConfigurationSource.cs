@@ -11,6 +11,8 @@ public class EntityFrameworkConfigurationSource : IConfigurationSource
         _optionsAction = optionsAction;
     }
 
-    public IConfigurationProvider Build(IConfigurationBuilder _) =>
-        new EntityFrameworkConfigurationProvider(_optionsAction);
+    public IConfigurationProvider Build(IConfigurationBuilder _)
+    {
+        return new EntityFrameworkConfigurationProvider(_optionsAction);
+    }
 }
