@@ -2,6 +2,7 @@ using WorkingWithProviders.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddConfigurations(builder.Configuration);
+builder.Services.AddDbContext(builder.Configuration);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
